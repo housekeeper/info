@@ -1,0 +1,36 @@
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=1024", :name => "viewport"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    
+    %title info | carl robert burton
+    %meta{:content => "carl burton is a technologist, nerd and a little unique. he has risen as a humble developer to a systems architect and can build out web apps to trading systems. he likes to get his hands dirty and is never afraid of a challenge.", :name => "description"}/
+    %meta{:content => "carl burton", :name => "author"}/
+    
+    = stylesheet_link_tag    "application", :media => "all"
+    = csrf_meta_tags
+    
+
+  %body.impress-not-supported
+
+    .fallback-message
+      %p
+        Your browser does not support the required features
+
+
+
+    = yield
+    
+    = javascript_include_tag "application"
+
+    .hint
+      %p Use a spacebar or arrow keys to navigate
+
+    :javascript
+      if ("ontouchstart" in document.documentElement) { 
+        document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+      }
+
+    :javascript
+      impress().init();

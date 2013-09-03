@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: pcpc
+  pool: 5
+  username: railsuser
+  password: railsuser
+  host: localhost
